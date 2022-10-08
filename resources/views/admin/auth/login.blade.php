@@ -18,7 +18,7 @@
                 <a href="../../index2.html" class="h1"><b>{{env('APP_NAME')}}</b></a>
             </div>
             <div class="card-body">
-                <p class="login-box-msg">Sign in to Start Your Admin Panel</p>
+                <p class="login-box-msg">Enter Your Email and Password to Access Admin Panel</p>
                 <form method="POST" action="{{ route('admin.login.submit') }}">
                     @csrf
                     <div class="input-group mb-3">

@@ -15,7 +15,7 @@
                 </div>
             </div>
         </div>
-        {{-- <div class="row">
+        <div class="row">
             <div class="col-12">
                 <div class="card widget-inline">
                     <div class="card-body p-0">
@@ -468,6 +468,6 @@
                     </div>
                 </div>
             </div>
-        </div> --}}
+        </div>
     </div>
 @endsection
