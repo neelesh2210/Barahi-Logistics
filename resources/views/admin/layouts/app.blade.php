@@ -19,9 +19,6 @@
 
     <body class="hold-transition sidebar-mini layout-fixed">
         <div class="wrapper">
-            <div class="preloader flex-column justify-content-center align-items-center">
-                <img class="animation__shake" src="{{asset('admins/assets/images/AdminLTELogo.png')}}" alt="AdminLTELogo" height="60" width="60">
-            </div>
 
             @include('admin.layouts.nav')
 
@@ -42,8 +39,10 @@
         <script src="{{asset('admins/js/bootstrap.bundle.min.js')}}"></script>
         <script src="{{asset('admins/js/Chart.min.js')}}"></script>
         <script src="{{asset('admins/js/sparkline.js')}}"></script>
+        @if(Route::currentRouteName() == 'admin.dashboard')
         <script src="{{asset('admins/js/jquery.vmap.min.js')}}"></script>
         <script src="{{asset('admins/js/jquery.vmap.usa.js')}}"></script>
+        @endif
         <script src="{{asset('admins/js/jquery.knob.min.js')}}"></script>
         <script src="{{asset('admins/js/moment.min.js')}}"></script>
         <script src="{{asset('admins/js/daterangepicker.js')}}"></script>
@@ -53,6 +52,8 @@
         <script src="{{asset('admins/js/adminlte.js')}}"></script>
         <script src="{{asset('admins/js/demo.js')}}"></script>
         <script src="{{asset('admins/js/dashboard.js')}}"></script>
+        <script src="{{asset('admins/js/jquery.validate.min.js')}}"></script>
+        <script src="{{asset('admins/js/form-validation.js')}}"></script>
     </body>
 
 </html>

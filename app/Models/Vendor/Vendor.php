@@ -21,4 +21,9 @@ class Vendor extends Authenticatable
         'password',
     ];
 
+    public function vendor_details()
+    {
+        return $this->hasOne(VendorDetail::class);
+    }
+
 }

@@ -16,9 +16,25 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
-                    <a href="{{route('admin.dashboard')}}" class="nav-link active">
+                    <a href="{{route('admin.dashboard')}}" class="nav-link @if(Route::currentRouteName() == 'admin.dashboard') active @endif">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>Dashboard</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('vendors.index')}}" class="nav-link @if(Route::currentRouteName() == 'vendors.index' || Route::currentRouteName() == 'vendors.create' || Route::currentRouteName() == 'vendors.edit') active @endif">
+                        <i class="nav-icon fas fa-user-tie"></i>
+                        <p>
+                            Vendors
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('destination-with-charges.index')}}" class="nav-link @if(Route::currentRouteName() == 'destination-with-charges.index') active @endif">
+                        <i class="nav-icon fas fa-map-marker-alt"></i>
+                        <p>
+                            Destination With Charge
+                        </p>
                     </a>
                 </li>
             </ul>

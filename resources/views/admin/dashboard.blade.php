@@ -1,5 +1,8 @@
 @extends('admin.layouts.app')
 @section('content')
+    <div class="preloader flex-column justify-content-center align-items-center">
+        <img class="animation__shake" src="{{asset('admins/assets/images/AdminLTELogo.png')}}" alt="AdminLTELogo" height="60" width="60">
+    </div>
     <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
