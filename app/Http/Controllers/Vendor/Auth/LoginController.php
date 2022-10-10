@@ -28,7 +28,17 @@ class LoginController extends Controller
 
         if (Auth::guard('vendor')->attempt(['phone' => $request->phone, 'password' => $request->password], $request->remember))
         {
-            return redirect()->route('vendor.dashboard');
+            if(Auth::guard('vendor')->user()->status)
+            {
+                return redirect()->route('vendor.dashboard');
+            }
+            else
+            {
+                Auth::guard('vendor')->logout();
+                return redirect()->back()->withErrors(['not_verify' => [
+                    'You are Not Verified!'
+                ]]);
+            }
         }
         return redirect()->back()->withInput($request->only('phone', 'remember'))
                 ->withErrors(['password' => [

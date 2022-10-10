@@ -37,6 +37,14 @@
                         </p>
                     </a>
                 </li>
+                {{-- <li class="nav-item">
+                    <a href="{{route('branches.index')}}" class="nav-link @if(Route::currentRouteName() == 'branches.index') active @endif">
+                        <i class="nav-icon fas fa-code-branch"></i>
+                        <p>
+                            Branch
+                        </p>
+                    </a>
+                </li> --}}
             </ul>
         </nav>
     </div>

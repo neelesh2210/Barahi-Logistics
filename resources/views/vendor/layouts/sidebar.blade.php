@@ -27,6 +27,12 @@
                     <span> Dashboard </span>
                 </a>
             </li>
+            <li class="side-nav-item">
+                <a href="{{route('orders.index')}}" class="side-nav-link">
+                    <i class="uil-dropbox"></i>
+                    <span> Orders </span>
+                </a>
+            </li>
         </ul>
     </div>
 </div>

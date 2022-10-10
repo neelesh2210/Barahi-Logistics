@@ -60,6 +60,20 @@ class VendorController extends Controller
         return redirect()->route('vendors.index')->with('success','Vendor Register Successfully!');
     }
 
+    public function show(Request $request,Vendor $vendor)
+    {
+        $vendor->status=$request->status;
+        $vendor->save();
+        if($request->status)
+        {
+            return redirect()->route('vendors.index')->with('success','Vendor Verified Successfully!');
+        }
+        else
+        {
+            return redirect()->route('vendors.index')->with('error','Vendor Not Verified Successfully!');
+        }
+    }
+
     public function edit(Vendor $vendor)
     {
         return view('admin.vendor.edit',compact('vendor'));

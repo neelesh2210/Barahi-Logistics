@@ -31,6 +31,13 @@
                                     <h4 class="text-dark-50 text-center pb-0 fw-bold">Sign In</h4>
                                     <p class="text-muted mb-4">Enter Your Phone Number and Password to Access Admin Panel.</p>
                                 </div>
+                                @error('not_verify')
+                                    <div class="text-center w-75 m-auto">
+                                        <span style="color:red">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    </div>
+                                @enderror
                                 <form method="POST" action="{{ route('vendor.login.submit') }}">
                                     @csrf
                                     <div class="mb-3">

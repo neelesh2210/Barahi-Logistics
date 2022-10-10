@@ -15,6 +15,7 @@ class Vendor extends Authenticatable
         'email',
         'phone',
         'password',
+        'status'
     ];
 
     protected $hidden = [

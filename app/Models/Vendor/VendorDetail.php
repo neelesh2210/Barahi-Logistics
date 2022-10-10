@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class VendorDetail extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'vendor_id',
+        'address',
+        'company_name',
+        'registration_document',
+        'pan_image'
+    ];
+
 }

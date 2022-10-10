@@ -9,6 +9,7 @@
             <th class="text-center">Company Name</th>
             <th class="text-center">Registration Doc</th>
             <th class="text-center">Pan Doc</th>
+            <th class="text-center">Status</th>
             <th class="text-center">Action</th>
         </tr>
     </thead>
@@ -23,6 +24,17 @@
                 <td class="text-center">{{$vendor->vendor_details->company_name}}</td>
                 <td class="text-center"><img src="{{asset('vendors/assets/images/vendor_docs/'.$vendor->vendor_details->registration_document)}}" style="height: 100px;width: 100px;"></td>
                 <td class="text-center"><img src="{{asset('vendors/assets/images/vendor_docs/'.$vendor->vendor_details->pan_image)}}" style="height: 100px;width: 100px;"></td>
+                <td class="text-center">
+                    @if($vendor->status)
+                        <a href="{{route('vendors.show',$vendor->id)}}?status=0">
+                            <span class="badge bg-success">Verified</span>
+                        </a>
+                    @else
+                        <a href="{{route('vendors.show',$vendor->id)}}?status=1">
+                            <span class="badge bg-danger">Not Verified</span>
+                        </a>
+                    @endif
+                </td>
                 <td class="text-center">
                     <a href="{{route('vendors.edit',$vendor->id)}}" class="btn btn-outline-primary btn-sm mr-1 mb-1">
                         <i class="fas fa-edit"></i>
