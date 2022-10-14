@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Vendor;
 
 use Auth;
+use App\Models\User;
 use App\Models\Vendor\Order;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use App\Models\Admin\DestinationWithCharge;
 
 class OrderController extends Controller
@@ -13,7 +15,7 @@ class OrderController extends Controller
 
     public function index()
     {
-        $orders=Order::orderBy('id','desc')->paginate(10);
+        $orders=Order::where('added_by',Auth::guard('vendor')->user()->id)->orderBy('id','desc')->paginate(10);
 
         return view('vendor.order.index',compact('orders'));
     }
@@ -25,6 +27,16 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
+        $user = User::where('phone',$request->receiver_phone)->first();
+        if(!$user)
+        {
+            $user = new User;
+            $user->name = $request->receiver_name;
+            $user->phone = $request->receiver_phone;
+            $user->password = Hash::make($request->receiver_phone);
+            $user->save();
+        }
+
         $or_id = Order::latest()->first();
         if($or_id)
         {
@@ -37,7 +49,8 @@ class OrderController extends Controller
 
         $order = new Order;
         $order->order_id = 'ORD-'.$order_id;
-        $order->user_id = Auth::guard('vendor')->user()->id;
+        $order->added_by = Auth::guard('vendor')->user()->id;
+        $order->user_id = $user->id;
         $order->branch_id = $request->branch_id;
         $order->destination_id = $request->destination_id;
         $order->receiver_name = $request->receiver_name;
@@ -56,9 +69,9 @@ class OrderController extends Controller
         return redirect()->route('orders.index')->with('success','Order Created Successfully!');
     }
 
-    public function show($id)
+    public function show(Order $order)
     {
-        //
+        return view('vendor.order.show',compact('order'));
     }
 
     public function edit($id)

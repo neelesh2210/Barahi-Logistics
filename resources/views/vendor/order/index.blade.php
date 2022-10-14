@@ -37,7 +37,7 @@
                                         <th>COD Amount</th>
                                         <th>Description</th>
                                         <th>Status</th>
-                                        <th>Action</th>
+                                        <th>View</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -56,8 +56,7 @@
                                             <td>{{$order->remark}}</td>
                                             <td>{{$order->remark}}</td>
                                             <td class="table-action">
-                                                <a href="javascript: void(0);" class="action-icon"> <i class="mdi mdi-pencil"></i></a>
-                                                <a href="javascript: void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a>
+                                                <a href="{{route('orders.show',$order->id)}}" class="action-icon"> <i class="mdi mdi-eye"></i></a>
                                             </td>
                                         </tr>
                                     @empty

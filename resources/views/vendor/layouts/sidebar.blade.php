@@ -33,6 +33,12 @@
                     <span> Orders </span>
                 </a>
             </li>
+            <li class="side-nav-item">
+                <a href="{{route('customers.index')}}" class="side-nav-link">
+                    <i class="uil-users-alt"></i>
+                    <span> Customers </span>
+                </a>
+            </li>
         </ul>
     </div>
 </div>
