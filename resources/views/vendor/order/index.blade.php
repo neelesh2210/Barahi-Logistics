@@ -45,7 +45,7 @@
                                         <tr>
                                             <td>{{($key+1) + ($orders->currentPage() - 1)*$orders->perPage()}}</td>
                                             <td>{{$order->order_id}}</td>
-                                            <td>{{$order->destination_id}}</td>
+                                            <td>{{$order->destination->destination}}</td>
                                             <td>
                                                 <b>Name:</b>{{$order->receiver_name}} <br>
                                                 <b>Phone</b>{{$order->receiver_phone}} <br>
