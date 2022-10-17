@@ -31,7 +31,7 @@ class CreateOrdersTable extends Migration
             $table->string('package_access');
             $table->string('package_type')->nullable();
             $table->text('remark')->nullable();
-            $table->boolean('status')->default(0);
+            $table->string('order_status')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

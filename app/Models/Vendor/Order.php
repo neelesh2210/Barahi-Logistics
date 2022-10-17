@@ -2,7 +2,9 @@
 
 namespace App\Models\Vendor;
 
+use App\Models\Admin\Branch;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Admin\DestinationWithCharge;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -27,7 +29,22 @@ class Order extends Model
         'package_access',
         'package_type',
         'remark',
-        'status'
+        'order_status'
     ];
+
+    public function branch()
+    {
+        return $this->belongsTo(Branch::class,'branch_id','id');
+    }
+
+    public function destination()
+    {
+        return $this->belongsTo(DestinationWithCharge::class,'destination_id','id');
+    }
+
+    public function vendor()
+    {
+        return $this->belongsTo(Vendor::class,'added_by','id');
+    }
 
 }

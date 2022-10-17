@@ -22,8 +22,8 @@
                 <td class="text-center">{{$vendor->phone}}</td>
                 <td class="text-center">{{$vendor->vendor_details->address}}</td>
                 <td class="text-center">{{$vendor->vendor_details->company_name}}</td>
-                <td class="text-center"><img src="{{asset('vendors/assets/images/vendor_docs/'.$vendor->vendor_details->registration_document)}}" style="height: 100px;width: 100px;"></td>
-                <td class="text-center"><img src="{{asset('vendors/assets/images/vendor_docs/'.$vendor->vendor_details->pan_image)}}" style="height: 100px;width: 100px;"></td>
+                <td class="text-center"><a href="{{asset('vendors/assets/images/vendor_docs/'.$vendor->vendor_details->registration_document)}}" target="_blank"><img src="{{asset('vendors/assets/images/vendor_docs/'.$vendor->vendor_details->registration_document)}}" style="height: 100px;width: 100px;"></a></td>
+                <td class="text-center"><a href="{{asset('vendors/assets/images/vendor_docs/'.$vendor->vendor_details->pan_image)}}" target="_blank"><img src="{{asset('vendors/assets/images/vendor_docs/'.$vendor->vendor_details->pan_image)}}" style="height: 100px;width: 100px;"></a></td>
                 <td class="text-center">
                     @if($vendor->status)
                         <a href="{{route('vendors.show',$vendor->id)}}?status=0">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\BranchController;
 use App\Http\Controllers\Admin\VendorController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -19,6 +20,11 @@ Route::middleware(['auth:admin'])->group(function () {
 
     //Branch
     Route::resource('branches', BranchController::class);
+
+    //Order
+    Route::get('orders-index',[OrderController::class,'index'])->name('admin.orders.index');
+    Route::get('orders-show/{id}',[OrderController::class,'show'])->name('admin.orders.show');
+    Route::get('orders-status/{id}/{status}',[OrderController::class,'ordersStatus'])->name('admin.orders.status');
 
     Route::post('logout/', [LoginController::class, 'logout'])->name('admin.logout');
 });

@@ -15,7 +15,8 @@
         <link rel="stylesheet" href="{{asset('admins/css/OverlayScrollbars.min.css')}}">
         <link rel="stylesheet" href="{{asset('admins/css/daterangepicker.css')}}">
         <link rel="stylesheet" href="{{asset('admins/css/summernote-bs4.min.css')}}">
-    </head>
+        <link rel="stylesheet" href="{{asset('admins/css/select2.min.css')}}">
+        <link rel="stylesheet" href="{{asset('admins/css/select2-bootstrap4.min.css')}}">
 
     <body class="hold-transition sidebar-mini layout-fixed">
         <div class="wrapper">
@@ -54,6 +55,15 @@
         <script src="{{asset('admins/js/dashboard.js')}}"></script>
         <script src="{{asset('admins/js/jquery.validate.min.js')}}"></script>
         <script src="{{asset('admins/js/form-validation.js')}}"></script>
+        <script src="{{asset('admins/js/select2.full.min.js')}}"></script>
+        <script>
+            $(function () {
+                $('.select2').select2()
+                $('.select2bs4').select2({
+                    theme: 'bootstrap4'
+                })
+            });
+        </script>
     </body>
 
 </html>

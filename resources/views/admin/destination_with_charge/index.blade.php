@@ -56,23 +56,23 @@
                             <div class="card-body p-0">
                                 <div class="modal-body">
                                     @if (isset($edit_data))
-                                        <form action="{{route('destination-with-charges.update', $edit_data->id)}}" method="POST" class="form-example">
+                                        <form action="{{route('destination-with-charges.update', $edit_data->id)}}" method="POST" class="form-example form-validate">
                                             @method('PUT')
                                     @else
-                                        <form action="{{route('destination-with-charges.store')}}" method="POST" class="form-example">
+                                        <form action="{{route('destination-with-charges.store')}}" method="POST" class="form-example form-validate">
                                     @endif
                                         @csrf
                                         <div class="modal-body">
                                             <div class="row">
                                                 <div class="col-md-12 form_div">
                                                     <div class="form-group">
-                                                        <label for="destination">Destination</label>
+                                                        <label for="destination">Destination<span class="text-danger">*</span></label>
                                                         <input type="text" class="form-control" id="destination" name="destination" placeholder="Enter Destination..." value="@isset($edit_data){{$edit_data->destination}}@endisset" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12 form_div">
                                                     <div class="form-group">
-                                                        <label for="charge">Charge</label>
+                                                        <label for="charge">Charge<span class="text-danger">*</span></label>
                                                         <input type="number" step="0.01" class="form-control" id="charge" name="charge" placeholder="Enter Charge..." value="@isset($edit_data){{$edit_data->charge}}@endisset" required>
                                                     </div>
                                                 </div>

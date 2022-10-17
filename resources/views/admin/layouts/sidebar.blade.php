@@ -45,6 +45,14 @@
                         </p>
                     </a>
                 </li> --}}
+                <li class="nav-item">
+                    <a href="{{route('admin.orders.index')}}" class="nav-link @if(Route::currentRouteName() == 'admin.orders.index' || Route::currentRouteName() == 'admin.orders.show') active @endif">
+                        <i class="nav-icon fas fa-boxes"></i>
+                        <p>
+                            Orders
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>
