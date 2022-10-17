@@ -54,7 +54,7 @@
                                             </td>
                                             <td>{{$order->cod_charge}}</td>
                                             <td>{{$order->remark}}</td>
-                                            <td>{{$order->remark}}</td>
+                                            <td>{{$order->order_status}}</td>
                                             <td class="table-action">
                                                 <a href="{{route('orders.show',$order->id)}}" class="action-icon"> <i class="mdi mdi-eye"></i></a>
                                             </td>
