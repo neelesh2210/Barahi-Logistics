@@ -64,6 +64,7 @@ class OrderController extends Controller
         $order->package_access = $request->package_access;
         $order->package_type = $request->package_type;
         $order->remark = $request->remark;
+        $order->order_status = 'order_created';
         $order->save();
 
         return redirect()->route('orders.index')->with('success','Order Created Successfully!');
