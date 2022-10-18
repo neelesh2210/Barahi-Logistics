@@ -58,6 +58,8 @@
         <script src="{{asset('admins/js/select2.full.min.js')}}"></script>
         <script>
             $(function () {
+                $('.summernote').summernote()
+
                 $('.select2').select2()
                 $('.select2bs4').select2({
                     theme: 'bootstrap4'

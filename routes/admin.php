@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\BranchController;
+use App\Http\Controllers\Admin\NoticeController;
 use App\Http\Controllers\Admin\VendorController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Auth\LoginController;
@@ -25,6 +26,10 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::get('orders-index',[OrderController::class,'index'])->name('admin.orders.index');
     Route::get('orders-show/{id}',[OrderController::class,'show'])->name('admin.orders.show');
     Route::get('orders-status/{id}/{status}',[OrderController::class,'ordersStatus'])->name('admin.orders.status');
+
+    //Notice
+    Route::resource('admin-notices', NoticeController::class)->except('destroy');
+    Route::get('admin-notices.destroy/{id}',[NoticeController::class,'destroy'])->name('admin-notices.destroy');
 
     Route::post('logout/', [LoginController::class, 'logout'])->name('admin.logout');
 });

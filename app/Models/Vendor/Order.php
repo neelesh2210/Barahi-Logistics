@@ -29,6 +29,10 @@ class Order extends Model
         'package_access',
         'package_type',
         'remark',
+        'priority',
+        'vendor_reference_id',
+        'delivery_instruction',
+        'payment_collection',
         'order_status'
     ];
 

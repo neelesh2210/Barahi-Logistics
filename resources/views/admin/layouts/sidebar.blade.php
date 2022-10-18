@@ -53,6 +53,14 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('admin-notices.index')}}" class="nav-link @if(Route::currentRouteName() == 'admin-notices.index' || Route::currentRouteName() == 'admin-notices.create' || Route::currentRouteName() == 'admin-notices.edit') active @endif">
+                        <i class="nav-icon fas fa-scroll"></i>
+                        <p>
+                            Notices
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>

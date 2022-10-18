@@ -94,4 +94,16 @@ class OrderController extends Controller
     {
         return DestinationWithCharge::where('id',$destination_id)->first();
     }
+
+    public function additionalInfo(Request $request,$order_id)
+    {
+        Order::where('id',$order_id)->update([
+            'priority'=>$request->priority,
+            'remark'=>$request->remark,
+            'vendor_reference_id'=>$request->vendor_reference_id,
+            'delivery_instruction'=>$request->delivery_instruction
+        ]);
+
+        return back()->with('success','Additional Info Updated Successfully!');
+    }
 }

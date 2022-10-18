@@ -31,6 +31,10 @@ class CreateOrdersTable extends Migration
             $table->string('package_access');
             $table->string('package_type')->nullable();
             $table->text('remark')->nullable();
+            $table->string('priority')->nullable();
+            $table->string('vendor_reference_id')->nullable();
+            $table->string('delivery_instruction')->nullable();
+            $table->string('payment_collection')->nullable();
             $table->string('order_status')->nullable();
             $table->softDeletes();
             $table->timestamps();

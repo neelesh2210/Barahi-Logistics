@@ -39,6 +39,12 @@
                     <span> Customers </span>
                 </a>
             </li>
+            <li class="side-nav-item">
+                <a href="{{route('vendor.notices.index')}}" class="side-nav-link">
+                    <i class="uil-users-alt"></i>
+                    <span> Notices </span>
+                </a>
+            </li>
         </ul>
     </div>
 </div>
