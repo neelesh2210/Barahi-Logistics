@@ -54,6 +54,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{route('admin.payment.index')}}" class="nav-link @if(Route::currentRouteName() == 'admin.payment.index') active @endif">
+                        <i class="nav-icon fas fa-money-bill-wave"></i>
+                        <p>
+                            Payments
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{route('admin-notices.index')}}" class="nav-link @if(Route::currentRouteName() == 'admin-notices.index' || Route::currentRouteName() == 'admin-notices.create' || Route::currentRouteName() == 'admin-notices.edit') active @endif">
                         <i class="nav-icon fas fa-scroll"></i>
                         <p>
