@@ -29,7 +29,7 @@ class PaymentController extends Controller
         $tran_id = Payment::latest()->first();
         if($tran_id)
         {
-            $transfer_id = $tran_id->order_id+1;
+            $transfer_id = $tran_id->transfer_id+1;
         }
         else
         {
