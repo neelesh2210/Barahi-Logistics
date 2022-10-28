@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\NoticeController;
 use App\Http\Controllers\Vendor\OrderController;
+use App\Http\Controllers\Vendor\PaymentController;
 use App\Http\Controllers\Vendor\CustomerController;
 use App\Http\Controllers\Vendor\DashboardController;
 use App\Http\Controllers\Vendor\Auth\LoginController;
@@ -20,8 +21,12 @@ use App\Http\Controllers\Vendor\OrderCommentController;
 
         //Order Comment
         Route::resource('order-comments',OrderCommentController::class);
+
         //Customer
         Route::get('customers-index',[CustomerController::class,'index'])->name('customers.index');
+
+        //Payment
+        Route::get('payment-index',[PaymentController::class,'index'])->name('vendor.payment.index');
 
         //Notice
         Route::get('vendor-notices-index',[NoticeController::class,'vendorNoticesIndex'])->name('vendor.notices.index');

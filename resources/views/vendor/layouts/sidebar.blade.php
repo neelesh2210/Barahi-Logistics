@@ -34,6 +34,12 @@
                 </a>
             </li>
             <li class="side-nav-item">
+                <a href="{{route('vendor.payment.index')}}" class="side-nav-link">
+                    <i class="uil-money-bill"></i>
+                    <span> Payments </span>
+                </a>
+            </li>
+            <li class="side-nav-item">
                 <a href="{{route('customers.index')}}" class="side-nav-link">
                     <i class="uil-users-alt"></i>
                     <span> Customers </span>
