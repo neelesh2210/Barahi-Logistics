@@ -47,8 +47,14 @@
             </li>
             <li class="side-nav-item">
                 <a href="{{route('vendor.notices.index')}}" class="side-nav-link">
-                    <i class="uil-users-alt"></i>
+                    <i class="uil-notes"></i>
                     <span> Notices </span>
+                </a>
+            </li>
+            <li class="side-nav-item">
+                <a href="{{route('vendor.ticket.index')}}" class="side-nav-link">
+                    <i class="uil-ticket"></i>
+                    <span> Ticket </span>
                 </a>
             </li>
         </ul>

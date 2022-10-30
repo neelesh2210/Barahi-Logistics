@@ -55,7 +55,7 @@
                             Created By: <b>{{$order->vendor->name}}</b> <br>
                         </div>
                         <div class="col-5">
-                            <h3>Additional Info</h3>
+                            <h3>Additional Info | <a style="cursor: pointer" onclick="additional_info()"><i class="fas fa-plus-circle"></i></a></h3>
                             Tracking Code: <b>{{$order->order_id}}</b> <br>
                             Package Access: <b>{{$order->package_access}}</b> <br>
                             Delivery Instruction: <b></b> <br>
@@ -81,13 +81,105 @@
                     </div>
                     <hr>
                     <div class="row">
-                        <div class="col-12">
-                            <h3>Comments:</h3>
+                        <div class="col-6">
+                            <h3>Comments | <a style="cursor: pointer" onclick="comment()"><i class="fas fa-comment-medical"></i></a></h3>
+                            @foreach (App\Models\Vendor\OrderComment::where('order_id',$order->id)->get() as $order_comment)
+                            <div class="row">
+                                <div class="col-md-6">
+                                    @if($order_comment->user_type == 'vendor')
+                                        {{App\Models\Vendor\Vendor::where('id',$order_comment->user_id)->first()->name}}
+                                    @elseif($order_comment->user_type == 'admin')
+                                        {{App\Models\Admin\Admin::where('id',$order_comment->user_id)->first()->name}}
+                                    @endif
+                                    <br>
+                                    {{$order_comment->created_at->format('M, d, Y, h:i A')}}
+                                </div>
+                                <div class="col-md-6">
+                                    {{$order_comment->comment}}
+                                </div>
+                            </div>
+                            <hr>
+                            @endforeach
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+    </div>
+
+    <div class="modal fade show" id="modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myLargeModalLabel">Additional Info</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="{{route('additional.info',$order->id)}}" method="POST">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6 pt-2">
+                                <label>Priority <span class="text-danger">*</span></label>
+                                <select name="priority" class="form-control">
+                                    <option value="normal" @if($order->priority == 'normal') selected @endif>Normal</option>
+                                    <option value="high" @if($order->priority == 'high') selected @endif>High</option>
+                                    <option value="urgent" @if($order->priority == 'urgent') selected @endif>Urgent</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 pt-2">
+                                <label>Vendor Reference ID</label>
+                                <input type="text" class="form-control" name="vendor_reference_id" value="{{$order->vendor_reference_id}}">
+                            </div>
+                            <div class="col-md-6 pt-2">
+                                <label>Description</label>
+                                <textarea name="remark" class="form-control" cols="30" rows="10">{{$order->remark}}</textarea>
+                            </div>
+                            <div class="col-md-6 pt-2">
+                                <label>Delivery Instruction</label>
+                                <textarea name="delivery_instruction" class="form-control" cols="30" rows="10">{{$order->delivery_instruction}}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button class="btn btn-primary">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade show" id="comment-modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myLargeModalLabel">Comment</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="{{route('order-comments.store')}}" method="POST">
+                    @csrf
+                    <input type="hidden" name="order_id" value="{{$order->id}}">
+                    <div class="modal-body">
+                        <div class="row">
+                            <input type="hidden" name="user_type" value="admin">
+                            <div class="col-md-12 pt-2">
+                                <label>Comment Type <span class="text-danger">*</span></label>
+                                <select name="comment_type" class="form-control">
+                                    <option value="information">Information</option>
+                                    <option value="actionable">Actionable</option>
+                                </select>
+                            </div>
+                            <div class="col-md-12 pt-2">
+                                <label>Comment</label>
+                                <textarea name="comment" class="form-control" cols="30" rows="10"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button class="btn btn-primary">Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 
 @endsection
@@ -101,6 +193,16 @@
         {
             location.reload();
         });
+    }
+
+    function additional_info()
+    {
+        $('#modal').modal('show')
+    }
+
+    function comment()
+    {
+        $('#comment-modal').modal('show')
     }
 
 </script>

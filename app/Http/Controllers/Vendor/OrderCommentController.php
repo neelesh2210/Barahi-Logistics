@@ -24,7 +24,7 @@ class OrderCommentController extends Controller
     {
         OrderComment::create([
             'order_id'=>$request->order_id,
-            'user_type'=>'vendor',
+            'user_type'=>$request->user_type,
             'user_id'=>Auth::guard('vendor')->user()->id,
             'comment_type'=>$request->comment_type,
             'comment'=>$request->comment

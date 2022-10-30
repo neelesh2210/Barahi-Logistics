@@ -141,6 +141,7 @@
                 <form action="{{route('order-comments.store')}}" method="POST">
                     @csrf
                     <input type="hidden" name="order_id" value="{{$order->id}}">
+                    <input type="hidden" name="user_type" value="vendor">
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-12 pt-2">

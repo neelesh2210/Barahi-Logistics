@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\BranchController;
 use App\Http\Controllers\Admin\NoticeController;
+use App\Http\Controllers\Admin\TicketController;
 use App\Http\Controllers\Admin\VendorController;
 use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -37,6 +38,11 @@ Route::middleware(['auth:admin'])->group(function () {
     //Notice
     Route::resource('admin-notices', NoticeController::class)->except('destroy');
     Route::get('admin-notices.destroy/{id}',[NoticeController::class,'destroy'])->name('admin-notices.destroy');
+
+    //Ticket
+    Route::get('ticket-index', [TicketController::class,'index'])->name('admin.ticket.index');
+    Route::get('ticket-status/{id}/{status}', [TicketController::class,'status'])->name('admin.ticket.status');
+    Route::get('ticket-reply/{ticket_id}', [TicketController::class,'replyIndex'])->name('admin.ticket.reply.index');
 
     Route::post('logout/', [LoginController::class, 'logout'])->name('admin.logout');
 });

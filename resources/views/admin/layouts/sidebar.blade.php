@@ -69,6 +69,14 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.ticket.index')}}" class="nav-link @if(Route::currentRouteName() == 'admin.ticket.index') active @endif">
+                        <i class="nav-icon fas fa-scroll"></i>
+                        <p>
+                            Tickets
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>

@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\Admin\NoticeController;
 use App\Http\Controllers\Vendor\OrderController;
+use App\Http\Controllers\Vendor\TicketController;
 use App\Http\Controllers\Vendor\PaymentController;
 use App\Http\Controllers\Vendor\CustomerController;
 use App\Http\Controllers\Vendor\DashboardController;
 use App\Http\Controllers\Vendor\Auth\LoginController;
+use App\Http\Controllers\Vendor\TicketReplyController;
 use App\Http\Controllers\Vendor\OrderCommentController;
 
     Route::get('login', [LoginController::class, 'showLoginForm'])->name('vendor.login');
@@ -31,6 +33,15 @@ use App\Http\Controllers\Vendor\OrderCommentController;
         //Notice
         Route::get('vendor-notices-index',[NoticeController::class,'vendorNoticesIndex'])->name('vendor.notices.index');
         Route::get('vendor-notices-show/{id}',[NoticeController::class,'vendorNoticesShow'])->name('vendor.notices.show');
+
+        //Ticket
+        Route::get('tickets-index', [TicketController::class,'index'])->name('vendor.ticket.index');
+        Route::get('tickets-create', [TicketController::class,'create'])->name('vendor.ticket.create');
+        Route::post('tickets-store', [TicketController::class,'store'])->name('vendor.ticket.store');
+
+        //Ticket Reply
+        Route::get('tickets-reply-index/{ticket_id}', [TicketReplyController::class,'index'])->name('vendor.ticket.reply.index');
+        Route::post('tickets-reply-store', [TicketReplyController::class,'store'])->name('vendor.ticket.reply.store');
 
         Route::post('logout/', [LoginController::class, 'logout'])->name('vendor.logout');
     });
