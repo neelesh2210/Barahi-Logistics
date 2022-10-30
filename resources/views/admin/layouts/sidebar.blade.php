@@ -71,9 +71,17 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{route('admin.ticket.index')}}" class="nav-link @if(Route::currentRouteName() == 'admin.ticket.index') active @endif">
-                        <i class="nav-icon fas fa-scroll"></i>
+                        <i class="nav-icon fas fa-ticket-alt"></i>
                         <p>
                             Tickets
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('delivery-boys.index')}}" class="nav-link @if(Route::currentRouteName() == 'delivery-boys.index') active @endif">
+                        <i class="nav-icon fas fa-biking"></i>
+                        <p>
+                            Delivery Boys
                         </p>
                     </a>
                 </li>

@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\VendorController;
 use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Auth\LoginController;
+use App\Http\Controllers\Admin\DeliveryBoyController;
 use App\Http\Controllers\Admin\DestinationWithChargeController;
 
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('admin.login');
@@ -15,6 +16,7 @@ Route::post('login', [LoginController::class, 'login'])->name('admin.login.submi
 
 Route::middleware(['auth:admin'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
+
     //Vendor
     Route::resource('vendors', VendorController::class);
 
@@ -43,6 +45,9 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::get('ticket-index', [TicketController::class,'index'])->name('admin.ticket.index');
     Route::get('ticket-status/{id}/{status}', [TicketController::class,'status'])->name('admin.ticket.status');
     Route::get('ticket-reply/{ticket_id}', [TicketController::class,'replyIndex'])->name('admin.ticket.reply.index');
+
+    //Delivery Boy
+    Route::resource('delivery-boys', DeliveryBoyController::class);
 
     Route::post('logout/', [LoginController::class, 'logout'])->name('admin.logout');
 });
