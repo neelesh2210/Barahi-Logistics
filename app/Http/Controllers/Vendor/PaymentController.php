@@ -17,4 +17,13 @@ class PaymentController extends Controller
         return view('vendor.payment.index',compact('payments'));
     }
 
+    public function generateInvoice($payment_id)
+    {
+        $payment = Payment::where('id',$payment_id)->first();
+        $order_ids = json_decode($payment->order_ids);
+
+        return view('admin.payment.invoice',compact('order_ids','payment'));
+
+    }
+
 }

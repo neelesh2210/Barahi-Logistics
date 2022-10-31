@@ -29,6 +29,7 @@ use App\Http\Controllers\Vendor\OrderCommentController;
 
         //Payment
         Route::get('payment-index',[PaymentController::class,'index'])->name('vendor.payment.index');
+        Route::get('generate-invoice/{payment_id}',[PaymentController::class,'generateInvoice'])->name('vendor.generate.invoice');
 
         //Notice
         Route::get('vendor-notices-index',[NoticeController::class,'vendorNoticesIndex'])->name('vendor.notices.index');

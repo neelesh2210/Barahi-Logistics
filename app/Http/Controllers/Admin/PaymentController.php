@@ -67,7 +67,7 @@ class PaymentController extends Controller
         $payment = Payment::where('id',$payment_id)->first();
         $order_ids = json_decode($payment->order_ids);
 
-        return view('admin.payment.invoice',compact('order_ids'));
+        return view('admin.payment.invoice',compact('order_ids','payment'));
 
     }
 

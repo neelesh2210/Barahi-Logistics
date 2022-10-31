@@ -44,7 +44,10 @@
                                             </td>
                                             <td>{{$payment->collection_mode}}</td>
                                             <td>
-                                                <a href="# class="action-icon"> <i class="uil-print"></i></a>
+                                                <a href="{{route('vendor.generate.invoice',$payment->id)}}" rel="noopener" target="_blank" class="btn btn-default">
+                                                    <i class="uil-print"></i>
+                                                </a>
+                                                <a href="#" class="action-icon"></a>
                                             </td>
                                         </tr>
                                     @empty
