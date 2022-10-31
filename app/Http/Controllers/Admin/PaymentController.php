@@ -62,4 +62,13 @@ class PaymentController extends Controller
         return view('admin.payment.order_table',compact('orders'));
     }
 
+    public function generateInvoice($payment_id)
+    {
+        $payment = Payment::where('id',$payment_id)->first();
+        $order_ids = json_decode($payment->order_ids);
+
+        return view('admin.payment.invoice',compact('order_ids'));
+
+    }
+
 }

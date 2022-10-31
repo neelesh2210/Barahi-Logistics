@@ -24,7 +24,7 @@
                 <td class="text-center">{{$payment->total_amount}}</td>
                 <td class="text-center">{{$payment->collection_mode}}</td>
                 <td class="text-center">
-                    <a href="#" class="btn btn-outline-primary btn-sm mr-1 mb-1">
+                    <a href="{{route('admin.generate.invoice',$payment->id)}}" rel="noopener" target="_blank" class="btn btn-default">
                         <i class="fas fa-print"></i>
                     </a>
                 </td>

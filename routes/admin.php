@@ -36,6 +36,7 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::get('payment-create',[PaymentController::class,'create'])->name('admin.payment.create');
     Route::post('payment-store',[PaymentController::class,'store'])->name('admin.payment.store');
     Route::get('get-vendor-orders/{vendor_id}',[PaymentController::class,'getVendorOrders'])->name('admin.get.vendor.orders');
+    Route::get('generate-invoice/{payment_id}',[PaymentController::class,'generateInvoice'])->name('admin.generate.invoice');
 
     //Notice
     Route::resource('admin-notices', NoticeController::class)->except('destroy');
