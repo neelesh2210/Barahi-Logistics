@@ -633,7 +633,7 @@
                                     Last COD Transfer:
                                 </div>
                                 <div class="col-md-4 text-end" style="font-size: 12px;">
-                                    <strong>{{optional(App\Models\Vendor\Payment::orderBy('id','desc')->first())->created_at()}}</strong>
+                                    <strong>{{optional(App\Models\Admin\Payment::orderBy('id','desc')->first())->created_at()}}</strong>
                                 </div>
                             </div>
                         </a>
