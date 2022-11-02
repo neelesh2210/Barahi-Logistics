@@ -66,6 +66,7 @@ class OrderController extends Controller
         $order->remark = $request->remark;
         $order->payment_collection = 'pending';
         $order->order_status = 'order_created';
+        $order->order_status_date = json_encode([['order_created'=>date('d-m-y H:i')]]);
         $order->save();
 
         return redirect()->route('orders.index')->with('success','Order Created Successfully!');

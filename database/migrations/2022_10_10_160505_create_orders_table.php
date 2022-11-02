@@ -36,6 +36,7 @@ class CreateOrdersTable extends Migration
             $table->string('delivery_instruction')->nullable();
             $table->string('payment_collection')->nullable();
             $table->string('order_status')->nullable();
+            $table->text('order_status_date')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

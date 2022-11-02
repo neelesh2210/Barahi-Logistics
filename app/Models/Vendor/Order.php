@@ -33,7 +33,8 @@ class Order extends Model
         'vendor_reference_id',
         'delivery_instruction',
         'payment_collection',
-        'order_status'
+        'order_status',
+        'order_status_date'
     ];
 
     public function branch()

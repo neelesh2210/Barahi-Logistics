@@ -470,87 +470,193 @@
         </div> --}}
         <div class="row ">
 
-            <div class="col-md-6 col-lg-6 col-xl mb-2 p-1 card-top cont">
-                <div class="card shadow rounded-card">
-                    <div class="card-body px-2">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
                         <div class="card-title  text-center">
                             <h5 style="font-weight: bolder;">Packages</h5>
                         </div>
-                        <div class="d-flex justify-content-around flex-column">
-                            <a class="card-item-link disable_href" href="/profiles/vendor/orders/">
-                                <div class="card-content d-flex  justify-content-around">
-                                    <div class="card-items">
-                                            Total:
-                                    </div>
-                                    <div class="card-items">
-                                        <strong>{{App\Models\Vendor\Order::get()->count()}}</strong>
-                                    </div>
+                        <a href="#">
+                            <div class="card-content row">
+                                <div class="col-md-6 text-left" style="font-size: 12px;">
+                                    Total:
                                 </div>
-                            </a>
-                            <a class="card-item-link disable_href" href="/profiles/vendor/filtered-orders/?status=Delivered">
-                                <div class="card-content d-flex  justify-content-around">
-                                    <div class="card-items">
-                                            Delivered:
-                                    </div>
-                                    <div class="card-items">
-                                        <strong>{{App\Models\Vendor\Order::where('order_status','delivered')->get()->count()}}</strong>
-                                    </div>
+                                <div class="col-md-6 text-end" style="font-size: 12px;">
+                                    <strong>{{App\Models\Vendor\Order::get()->count()}}</strong>
                                 </div>
-                            </a>
-                            <a class="card-item-link disable_href" href="/profiles/returned_orders/">
-                                <div class="card-content d-flex  justify-content-around">
-                                    <div class="card-items">
-                                            Actual Returned:
-                                    </div>
-                                    <div class="card-items">
-                                        <strong>{{App\Models\Vendor\Order::where('order_status','returned_delivered')->get()->count()}}</strong>
-                                    </div>
+
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="card-content row">
+                                <div class="col-md-8 text-left" style="font-size: 12px;">
+                                    Delivered:
                                 </div>
-                            </a>
-                            <a class="card-item-link disable_href" href="/profiles/vendor/redirect_return">
-                                <div class="card-content d-flex  justify-content-around">
-                                    <div class="card-items">
-                                            Total Redirects:
-                                    </div>
-                                    <div class="card-items">
-                                        <strong>{{App\Models\Vendor\Order::where('order_status','returned_to_warehouse')->get()->count()}}</strong>
-                                    </div>
+                                <div class="col-md-4 text-end" style="font-size: 12px;">
+                                    <strong>{{App\Models\Vendor\Order::where('order_status','delivered')->get()->count()}}</strong>
                                 </div>
-                            </a>
-                            <a class="card-item-link disable_href" href="/profiles/vendor/processing_orders">
-                                <div class="card-content d-flex  justify-content-around">
-                                    <div class="card-items">
-                                            Processing:
-                                    </div>
-                                    <div class="card-items">
-                                        <strong>{{App\Models\Vendor\Order::where('order_status','sent_for_delivery')->get()->count()}}</strong>
-                                    </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="card-content row">
+                                <div class="col-md-8 text-left" style="font-size: 12px;">
+                                    Actual Returned:
                                 </div>
-                            </a>
-                        </div>
+                                <div class="col-md-4 text-end" style="font-size: 12px;">
+                                    <strong>{{App\Models\Vendor\Order::where('order_status','returned_delivered')->get()->count()}}</strong>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="card-content row">
+                                <div class="col-md-8 text-left" style="font-size: 12px;">
+                                    Total Redirects:
+                                </div>
+                                <div class="col-md-4 text-end" style="font-size: 12px;">
+                                    <strong>{{App\Models\Vendor\Order::where('order_status','returned_to_warehouse')->get()->count()}}</strong>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="card-content row">
+                                <div class="col-md-8 text-left" style="font-size: 12px;">
+                                    Processing:
+                                </div>
+                                <div class="col-md-4 text-end" style="font-size: 12px;">
+                                    <strong>{{App\Models\Vendor\Order::where('order_status','sent_for_delivery')->get()->count()}}</strong>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title  text-center">
+                            <h5 style="font-weight: bolder;">Package Value</h5>
+                        </div>
+                        <a href="#">
+                            <div class="card-content row">
+                                <div class="col-md-6 text-left" style="font-size: 12px;">
+                                    Total:
+                                </div>
+                                <div class="col-md-6 text-end" style="font-size: 12px;">
+                                    <strong>{{App\Models\Vendor\Order::get()->sum('cod_charge') + App\Models\Vendor\Order::get()->sum('delivery_charge')}}</strong>
+                                </div>
 
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="card-content row">
+                                <div class="col-md-8 text-left" style="font-size: 12px;">
+                                    Delivered:
+                                </div>
+                                <div class="col-md-4 text-end" style="font-size: 12px;">
+                                    <strong>{{App\Models\Vendor\Order::where('order_status','delivered')->get()->sum('cod_charge') + App\Models\Vendor\Order::where('order_status','delivered')->get()->sum('delivery_charge')}}</strong>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="card-content row">
+                                <div class="col-md-8 text-left" style="font-size: 12px;">
+                                    Actual Returned:
+                                </div>
+                                <div class="col-md-4 text-end" style="font-size: 12px;">
+                                    <strong>{{App\Models\Vendor\Order::where('order_status','returned_delivered')->get()->sum('cod_charge') + App\Models\Vendor\Order::where('order_status','returned_delivered')->get()->sum('delivery_charge')}}</strong>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="card-content row">
+                                <div class="col-md-8 text-left" style="font-size: 12px;">
+                                    Total Redirects:
+                                </div>
+                                <div class="col-md-4 text-end" style="font-size: 12px;">
+                                    <strong>{{App\Models\Vendor\Order::where('order_status','returned_to_warehouse')->get()->sum('cod_charge') + App\Models\Vendor\Order::where('order_status','returned_to_warehouse')->get()->sum('delivery_charge')}}</strong>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="card-content row">
+                                <div class="col-md-8 text-left" style="font-size: 12px;">
+                                    Processing:
+                                </div>
+                                <div class="col-md-4 text-end" style="font-size: 12px;">
+                                    <strong>{{App\Models\Vendor\Order::where('order_status','sent_for_delivery')->get()->sum('cod_charge') + App\Models\Vendor\Order::where('order_status','sent_for_delivery')->get()->sum('delivery_charge')}}</strong>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title  text-center">
+                            <h5 style="font-weight: bolder;">COD Details</h5>
+                        </div>
+                        <a href="#">
+                            <div class="card-content row">
+                                <div class="col-md-6 text-left" style="font-size: 12px;">
+                                    Pending:
+                                </div>
+                                <div class="col-md-6 text-end" style="font-size: 12px;">
+                                    <strong>{{App\Models\Vendor\Order::where('order_status','!=','delivered')->get()->sum('cod_charge')}}</strong>
+                                </div>
 
-
-            <div class=" col-md-6 col-lg-6  col-xl-3 p-1 card-top detail-class">
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="card-content row">
+                                <div class="col-md-8 text-left" style="font-size: 12px;">
+                                    Last COD Amt:
+                                </div>
+                                <div class="col-md-4 text-end" style="font-size: 12px;">
+                                    <strong>{{App\Models\Vendor\Order::orderBy('id','desc')->first()->cod_charge}}</strong>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="card-content row">
+                                <div class="col-md-8 text-left" style="font-size: 12px;">
+                                    Delivery Charges:
+                                </div>
+                                <div class="col-md-4 text-end" style="font-size: 12px;">
+                                    <strong>{{App\Models\Vendor\Order::get()->sum('delivery_charge')}}</strong>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="card-content row">
+                                <div class="col-md-8 text-left" style="font-size: 12px;">
+                                    Last COD Transfer:
+                                </div>
+                                <div class="col-md-4 text-end" style="font-size: 12px;">
+                                    <strong>{{App\Models\Vendor\Order::where('order_status','returned_to_warehouse')->get()->count()}}</strong>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-md-3">
                 <div class="card  shadow rounded-card">
                     <div class="card-body">
                         <div class="text-center "><b>Today's Details</b></div>
 
                         <div class="p-0 d-flex flex-column justify-content-around">
                             <div class="d-flex justify-content-around text-center ">
-                                <a class="card-item-link" href="/analysis/todays/detail/delivered_orders">
+                                <a class="card-item-link" href="#">
                                     <div style="max-width:5rem;">
-                                        <div class="card-content text-center" style="font-size:2rem; font-weight: bolder;">
+                                        <div class="card-content text-center" style="font-size: 12px; font-weight: bolder;">
                                             {{App\Models\Vendor\Order::where('order_status','delivered')->get()->count()}}</div>
                                         <div class="card-content text-center ">Delivered Orders</div>
                                     </div>
                                 </a>
-                                <a class="card-item-link" href="/analysis/todays/detail/returned_orders">
+                                <a class="card-item-link" href="#">
                                     <div style="max-width:5rem;">
-                                        <div class="card-content text-center" style="font-size:2rem; font-weight: bolder;">
+                                        <div class="card-content text-center" style="font-size: 12px; font-weight: bolder;">
                                             0</div>
                                         <div class="card-content text-center ">
                                             Returned Delivered
@@ -559,16 +665,16 @@
                                 </a>
                             </div>
                             <div class="d-flex  justify-content-around text-center mb-2">
-                                <a class="card-item-link" href="/analysis/todays/detail/today_orders">
+                                <a class="card-item-link" href="#">
                                     <div style="max-width:5rem;">
-                                        <div class="card-content text-center" style="font-size:2rem; font-weight: bolder;">
+                                        <div class="card-content text-center" style="font-size: 12px; font-weight: bolder;">
                                            0 </div>
                                         <div class="card-content text-center ">Order Created</div>
                                     </div>
                                 </a>
-                                <a class="card-item-link" href="/profiles/vendor/todays-data/comments">
+                                <a class="card-item-link" href="#">
                                     <div style="max-width:5rem;">
-                                        <div class="card-content text-center" style="font-size:2rem; font-weight: bolder;">
+                                        <div class="card-content text-center" style="font-size: 12px; font-weight: bolder;">
                                             60</div>
                                         <div class="card-content text-center ">Order's Comment</div>
                                     </div>
@@ -578,19 +684,19 @@
                                 <div class="d-flex  justify-content-around text-center mt-3">
 
                                     <div style="max-width:5rem;">
-                                        <div class="card-content" style="font-size:2rem; font-weight: bolder;">
+                                        <div class="card-content" style="font-size: 12px; font-weight: bolder;">
                                             31</div>
-                                        <div class="card-content"><a class="link" href="/profiles/vendor/filtered-orders/?status=Hold">Hold Orders</a></div>
+                                        <div class="card-content"><a class="link" href="#">Hold Orders</a></div>
                                     </div>
                                     <div style="max-width:5rem;">
-                                        <div class="card-content text-center" style="font-size:2rem; font-weight: bolder;">
+                                        <div class="card-content text-center" style="font-size: 12px; font-weight: bolder;">
                                             1</div>
-                                        <div class="card-content text-center"><a class="link" href="/profiles/vendor/stale-orders">Stale Orders</a></div>
+                                        <div class="card-content text-center"><a class="link" href="#">Stale Orders</a></div>
                                     </div>
                                     <div style="max-width:5rem;">
-                                        <div class="card-content text-center" style="font-size:2rem; font-weight: bolder;">
+                                        <div class="card-content text-center" style="font-size: 12px; font-weight: bolder;">
                                             11</div>
-                                        <div class="card-content text-center"><a class="link" href="/profiles/vendor/filtered-orders/?status=RTV BRANCH">RTV Orders</a></div>
+                                        <div class="card-content text-center"><a class="link" href="#">RTV Orders</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -599,6 +705,85 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-9" style="margin-top: -17%;">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h4 class="header-title">Tasks Overview</h4>
+                            <div class="dropdown">
+                                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="mdi mdi-dots-vertical"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <a href="javascript:void(0);" class="dropdown-item">Weekly Report</a>
+                                    <a href="javascript:void(0);" class="dropdown-item">Monthly Report</a>
+                                    <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                    <a href="javascript:void(0);" class="dropdown-item">Settings</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div dir="ltr">
+                            <div class="mt-3 chartjs-chart" style="height: 320px;">
+                                <canvas id="task-area-chart" data-bgColor="#727cf5" data-borderColor="#727cf5"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-md-3">
+                <div class="card  shadow rounded-card">
+                    <div class="card-body">
+                        <div class="text-center "><b>Sales Statistics</b></div>
+
+                        <div class="p-0 d-flex flex-column justify-content-around">
+                            <div class="d-flex justify-content-around text-center ">
+                                <a class="card-item-link" href="#">
+                                    <div style="max-width:5rem;">
+                                        <div class="card-content text-center" style="font-size: 12px; font-weight: bolder;">
+                                            80.65%
+                                        </div>
+                                        <div class="card-content text-center ">Successful Delivered</div>
+                                    </div>
+                                </a>
+                                <a class="card-item-link" href="#">
+                                    <div style="max-width:5rem;">
+                                        <div class="card-content text-center" style="font-size: 12px; font-weight: bolder;">
+                                            12.12%</div>
+                                        <div class="card-content text-center ">
+                                            Returned Delivered
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="d-flex  justify-content-around text-center mb-2">
+                                <a class="card-item-link" href="#">
+                                    <div style="max-width:5rem;">
+                                        <div class="card-content text-center" style="font-size: 12px; font-weight: bolder;">
+                                           0 </div>
+                                        <div class="card-content text-center ">Total Redirects</div>
+                                    </div>
+                                </a>
+                                <a class="card-item-link" href="#">
+                                    <div style="max-width:5rem;">
+                                        <div class="card-content text-center" style="font-size: 12px; font-weight: bolder;">
+                                            60</div>
+                                        <div class="card-content text-center ">Redirect Delivered</div>
+                                    </div>
+                                </a>
+                                <a class="card-item-link" href="#">
+                                    <div style="max-width:5rem;">
+                                        <div class="card-content text-center" style="font-size: 12px; font-weight: bolder;">
+                                            60</div>
+                                        <div class="card-content text-center ">Redirect Delivered</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
         </div>
     </div>

@@ -49,8 +49,13 @@ class OrderController extends Controller
 
     public function ordersStatus($id,$status)
     {
-        Order::where('id',$id)->update([
-            'order_status'=>$status
-        ]);
+        $order = Order::find($id);
+        $order->order_status = $status;
+
+        $order_status_date=json_decode($order->order_status_date);
+        array_push($order_status_date,[$status=>date('d-m-y H:i')]);
+
+        $order->order_status_date = $order_status_date;
+        $order->save();
     }
 }
