@@ -613,7 +613,7 @@
                                     Last COD Amt:
                                 </div>
                                 <div class="col-md-4 text-end" style="font-size: 12px;">
-                                    <strong>{{App\Models\Vendor\Order::orderBy('id','desc')->first()->cod_charge}}</strong>
+                                    <strong>{{optional(App\Models\Vendor\Order::orderBy('id','desc')->first())->cod_charge}}</strong>
                                 </div>
                             </div>
                         </a>
@@ -783,7 +783,7 @@
                     </div>
                 </div>
             </div>
- 
+
 
         </div>
     </div>
