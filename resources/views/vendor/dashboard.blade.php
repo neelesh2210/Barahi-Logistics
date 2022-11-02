@@ -507,7 +507,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="#">
+                        {{-- <a href="#">
                             <div class="card-content row">
                                 <div class="col-md-8 text-left" style="font-size: 12px;">
                                     Total Redirects:
@@ -516,7 +516,7 @@
                                     <strong>{{App\Models\Vendor\Order::where('order_status','returned_to_warehouse')->get()->count()}}</strong>
                                 </div>
                             </div>
-                        </a>
+                        </a> --}}
                         <a href="#">
                             <div class="card-content row">
                                 <div class="col-md-8 text-left" style="font-size: 12px;">
@@ -567,7 +567,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="#">
+                        {{-- <a href="#">
                             <div class="card-content row">
                                 <div class="col-md-8 text-left" style="font-size: 12px;">
                                     Total Redirects:
@@ -576,7 +576,7 @@
                                     <strong>{{App\Models\Vendor\Order::where('order_status','returned_to_warehouse')->get()->sum('cod_charge') + App\Models\Vendor\Order::where('order_status','returned_to_warehouse')->get()->sum('delivery_charge')}}</strong>
                                 </div>
                             </div>
-                        </a>
+                        </a> --}}
                         <a href="#">
                             <div class="card-content row">
                                 <div class="col-md-8 text-left" style="font-size: 12px;">
@@ -688,11 +688,11 @@
                                             31</div>
                                         <div class="card-content"><a class="link" href="#">Hold Orders</a></div>
                                     </div>
-                                    <div style="max-width:5rem;">
+                                    {{-- <div style="max-width:5rem;">
                                         <div class="card-content text-center" style="font-size: 12px; font-weight: bolder;">
                                             1</div>
                                         <div class="card-content text-center"><a class="link" href="#">Stale Orders</a></div>
-                                    </div>
+                                    </div> --}}
                                     <div style="max-width:5rem;">
                                         <div class="card-content text-center" style="font-size: 12px; font-weight: bolder;">
                                             11</div>
@@ -757,13 +757,13 @@
                                 </a>
                             </div>
                             <div class="d-flex  justify-content-around text-center mb-2">
-                                <a class="card-item-link" href="#">
+                                {{-- <a class="card-item-link" href="#">
                                     <div style="max-width:5rem;">
                                         <div class="card-content text-center" style="font-size: 12px; font-weight: bolder;">
                                            0 </div>
                                         <div class="card-content text-center ">Total Redirects</div>
                                     </div>
-                                </a>
+                                </a> --}}
                                 <a class="card-item-link" href="#">
                                     <div style="max-width:5rem;">
                                         <div class="card-content text-center" style="font-size: 12px; font-weight: bolder;">
