@@ -706,7 +706,7 @@
                 </div>
             </div>
 
-            <div class="col-md-9" style="margin-top: -17%;">
+            <div class="col-md-9" style="margin-top: -10%;">
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center mb-2">
