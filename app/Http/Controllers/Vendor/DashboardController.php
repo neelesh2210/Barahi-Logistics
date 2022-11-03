@@ -32,7 +32,7 @@ class DashboardController extends Controller
 
         for($i=1;$i<=15;$i++)
         {
-            array_push($last_15_days,Carbon::now()->subDays($i)->format("Y-m-d"));
+            array_push($last_15_days,Carbon::now()->addDays(1)->subDays($i)->format("Y-m-d"));
         }
         $last_15_days = array_reverse($last_15_days);
 
