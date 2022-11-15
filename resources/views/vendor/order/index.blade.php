@@ -24,6 +24,59 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
+                    <div class="card-header">
+                        <form action="{{route('orders.index')}}">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label for="source">Source</label>
+                                    <select name="source" id="source" class="form-control select2" data-toggle="select2" >
+                                        <option value="">Select Source</option>
+                                        @foreach (App\Models\Admin\Branch::orderBy('branch_name','asc')->get() as $branch)
+                                            <option value="{{$branch->id}}">{{$branch->branch_name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="destination">Destination</label>
+                                    <select name="destination" id="destination" class="form-control select2" data-toggle="select2" >
+                                        <option value="">Select Destination...</option>
+                                        @foreach (App\Models\Admin\DestinationWithCharge::orderBy('destination','asc')->get() as $destination)
+                                            <option value="{{$destination->id}}">{{$destination->destination}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="status">Status</label>
+                                    <select name="status" id="status" class="form-control select2" data-toggle="select2" >
+                                        <option value="">Select Status</option>
+                                        <option value="drop_off_order_created">Drop Off Order Created</option>
+                                        <option value="pickup_order_created">Pickup Order Created</option>
+                                        <option value="sent_for_pickup">Sent for Pickup</option>
+                                        <option value="pickup_complete">Pickup Complete</option>
+                                        <option value="dispatched">Dispatched</option>
+                                        <option value="arrived">Arrived</option>
+                                        <option value="returned_to_warehouse">Returned To Warehouse</option>
+                                        <option value="sent_for_delivery">Sent for Delivery</option>
+                                        <option value="delivered">Delivered</option>
+                                        <option value="returned_delivered">Returned Delivered</option>
+                                        <option value="sent_to_vendor">Sent To Vendor</option>
+                                        <option value="order_created">Order Created</option>
+                                        <option value="hold">Hold</option>
+                                        <option value="cancelled">Cancelled</option>
+                                        <option value="rtv_branch">RTV Branch</option>
+                                        <option value="rtv_all">RTV All</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="date_range">Date Range</label>
+                                    <input type="text" name="date_range" class="form-control float-right" placeholder="Date Range" id="reservation">
+                                </div>
+                                <div class="col-md-1" style="margin-top: 2%;">
+                                    <button class="btn btn-primary">Fillter</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                     <div class="card-body">
                         <h4 class="header-title">Order List</h4>
                         <div class="table-responsive-sm">
@@ -74,7 +127,25 @@
             </div>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{asset('admins/js/moment.min.js')}}"></script>
+    <script src="{{asset('admins/js/daterangepicker.js')}}"></script>
+    <script>
 
+        $('#reservation').daterangepicker({
+            autoUpdateInput: false,
+            locale: {
+                cancelLabel: 'Clear'
+            }
+        })
 
+        $('#reservation').on('apply.daterangepicker', function(ev, picker) {
+            $(this).val(picker.startDate.format('MM/DD/YYYY') + '-' + picker.endDate.format('MM/DD/YYYY'));
+        });
 
-@endsection
+        $('#reservation').on('cancel.daterangepicker', function(ev, picker) {
+            $(this).val('');
+        });
+
+    </script>
+    @endsection
