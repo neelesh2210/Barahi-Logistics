@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Vendor;
 
 use Auth;
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Vendor\Order;
 use Illuminate\Http\Request;
@@ -13,10 +14,37 @@ use App\Models\Admin\DestinationWithCharge;
 class OrderController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $orders=Order::where('added_by',Auth::guard('vendor')->user()->id)->orderBy('id','desc')->paginate(10);
+        $orders=Order::where('added_by',Auth::guard('vendor')->user()->id);
 
+        if($request->source)
+        {
+            $orders=$orders->where('branch_id',$request->source);
+        }
+        if($request->destination)
+        {
+            $orders=$orders->where('destination_id',$request->destination);
+        }
+        if($request->status)
+        {
+            $orders=$orders->where('order_status',$request->status);
+        }
+
+        if(!empty($request->date_range))
+        {
+            $dates=explode('-',$request->date_range);
+            $d1=strtotime($dates[0]);
+            $d2=strtotime($dates[1]);
+            $da1=date('Y-m-d',$d1);
+            $da2=date('Y-m-d',$d2);
+            $startDate = Carbon::createFromFormat('Y-m-d', $da1)->startOfDay();
+            $endDate = Carbon::createFromFormat('Y-m-d', $da2)->endOfDay();
+
+            $date=$dates[0].' - '.$dates[1];
+            $orders=$orders->whereBetween('created_at', [$startDate, $endDate]);
+        }
+        $orders=$orders->orderBy('id','desc')->paginate(10);
         return view('vendor.order.index',compact('orders'));
     }
 
