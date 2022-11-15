@@ -8,11 +8,11 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Dashboard</h1>
+                        <h1 class="m-0 text-white">Dashboard</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#" >Home</a></li>
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ol>
                     </div>
@@ -25,45 +25,45 @@
                     <div class="col-md-4">
                         <div class="card">
                             <div class="card-body">
-                                <div class="card-title  text-center">
+                                <div class="card-title text-center">
                                     <h5 style="font-weight: bolder;">Packages</h5>
                                 </div>
                                 <a href="#">
                                     <div class="card-content row">
-                                        <div class="col-md-6 text-left" style="font-size: 12px;">
+                                        <div class="col-md-6 text-left" style="font-size: 14px;">
                                             Total:
                                         </div>
-                                        <div class="col-md-6 text-end" style="font-size: 12px;">
+                                        <div class="col-md-6 text-end" style="font-size: 14px;">
                                             <strong>{{App\Models\Vendor\Order::get()->count()}}</strong>
                                         </div>
                                     </div>
                                 </a>
                                 <a href="#">
                                     <div class="card-content row">
-                                        <div class="col-md-8 text-left" style="font-size: 12px;">
+                                        <div class="col-md-6 text-left" style="font-size: 14px;">
                                             Delivered:
                                         </div>
-                                        <div class="col-md-4 text-end" style="font-size: 12px;">
+                                        <div class="col-md-6 text-end" style="font-size: 14px;">
                                             <strong>{{App\Models\Vendor\Order::where('order_status','delivered')->get()->count()}}</strong>
                                         </div>
                                     </div>
                                 </a>
                                 <a href="#">
                                     <div class="card-content row">
-                                        <div class="col-md-8 text-left" style="font-size: 12px;">
+                                        <div class="col-md-6 text-left" style="font-size: 14px;">
                                             Actual Returned:
                                         </div>
-                                        <div class="col-md-4 text-end" style="font-size: 12px;">
+                                        <div class="col-md-6 text-end" style="font-size: 14px;">
                                             <strong>{{App\Models\Vendor\Order::where('order_status','returned_delivered')->get()->count()}}</strong>
                                         </div>
                                     </div>
                                 </a>
                                 <a href="#">
                                     <div class="card-content row">
-                                        <div class="col-md-8 text-left" style="font-size: 12px;">
+                                        <div class="col-md-6 text-left" style="font-size: 14px;">
                                             Processing:
                                         </div>
-                                        <div class="col-md-4 text-end" style="font-size: 12px;">
+                                        <div class="col-md-6 text-end" style="font-size: 14px;">
                                             <strong>{{App\Models\Vendor\Order::where('order_status','sent_for_delivery')->get()->count()}}</strong>
                                         </div>
                                     </div>
@@ -79,40 +79,40 @@
                                 </div>
                                 <a href="#">
                                     <div class="card-content row">
-                                        <div class="col-md-6 text-left" style="font-size: 12px;">
+                                        <div class="col-md-6 text-left" style="font-size: 14px;">
                                             Total:
                                         </div>
-                                        <div class="col-md-6 text-end" style="font-size: 12px;">
+                                        <div class="col-md-6 text-end" style="font-size: 14px;">
                                             <strong>{{App\Models\Vendor\Order::get()->sum('cod_charge') + App\Models\Vendor\Order::get()->sum('delivery_charge')}}</strong>
                                         </div>
                                     </div>
                                 </a>
                                 <a href="#">
                                     <div class="card-content row">
-                                        <div class="col-md-8 text-left" style="font-size: 12px;">
+                                        <div class="col-md-6 text-left" style="font-size: 14px;">
                                             Delivered:
                                         </div>
-                                        <div class="col-md-4 text-end" style="font-size: 12px;">
+                                        <div class="col-md-6 text-end" style="font-size: 14px;">
                                             <strong>{{App\Models\Vendor\Order::where('order_status','delivered')->get()->sum('cod_charge') + App\Models\Vendor\Order::where('order_status','delivered')->get()->sum('delivery_charge')}}</strong>
                                         </div>
                                     </div>
                                 </a>
                                 <a href="#">
                                     <div class="card-content row">
-                                        <div class="col-md-8 text-left" style="font-size: 12px;">
+                                        <div class="col-md-6 text-left" style="font-size: 14px;">
                                             Actual Returned:
                                         </div>
-                                        <div class="col-md-4 text-end" style="font-size: 12px;">
+                                        <div class="col-md-6 text-end" style="font-size: 14px;">
                                             <strong>{{App\Models\Vendor\Order::where('order_status','returned_delivered')->get()->sum('cod_charge') + App\Models\Vendor\Order::where('order_status','returned_delivered')->get()->sum('delivery_charge')}}</strong>
                                         </div>
                                     </div>
                                 </a>
                                 <a href="#">
                                     <div class="card-content row">
-                                        <div class="col-md-8 text-left" style="font-size: 12px;">
+                                        <div class="col-md-6 text-left" style="font-size: 14px;">
                                             Processing:
                                         </div>
-                                        <div class="col-md-4 text-end" style="font-size: 12px;">
+                                        <div class="col-md-6 text-end" style="font-size: 14px;">
                                             <strong>{{App\Models\Vendor\Order::where('order_status','sent_for_delivery')->get()->sum('cod_charge') + App\Models\Vendor\Order::where('order_status','sent_for_delivery')->get()->sum('delivery_charge')}}</strong>
                                         </div>
                                     </div>
@@ -128,40 +128,40 @@
                                 </div>
                                 <a href="#">
                                     <div class="card-content row">
-                                        <div class="col-md-6 text-left" style="font-size: 12px;">
+                                        <div class="col-md-6 text-left" style="font-size: 14px;">
                                             Pending:
                                         </div>
-                                        <div class="col-md-6 text-end" style="font-size: 12px;">
+                                        <div class="col-md-6 text-end" style="font-size: 14px;">
                                             <strong>{{App\Models\Vendor\Order::where('order_status','!=','delivered')->get()->sum('cod_charge')}}</strong>
                                         </div>
                                     </div>
                                 </a>
                                 <a href="#">
                                     <div class="card-content row">
-                                        <div class="col-md-8 text-left" style="font-size: 12px;">
+                                        <div class="col-md-6 text-left" style="font-size: 14px;">
                                             Last COD Amt:
                                         </div>
-                                        <div class="col-md-4 text-end" style="font-size: 12px;">
+                                        <div class="col-md-6 text-end" style="font-size: 14px;">
                                             <strong>{{optional(App\Models\Vendor\Order::orderBy('id','desc')->first())->cod_charge}}</strong>
                                         </div>
                                     </div>
                                 </a>
                                 <a href="#">
                                     <div class="card-content row">
-                                        <div class="col-md-8 text-left" style="font-size: 12px;">
+                                        <div class="col-md-6 text-left" style="font-size: 14px;">
                                             Delivery Charges:
                                         </div>
-                                        <div class="col-md-4 text-end" style="font-size: 12px;">
+                                        <div class="col-md-6 text-end" style="font-size: 14px;">
                                             <strong>{{App\Models\Vendor\Order::get()->sum('delivery_charge')}}</strong>
                                         </div>
                                     </div>
                                 </a>
                                 <a href="#">
                                     <div class="card-content row">
-                                        <div class="col-md-6 text-left" style="font-size: 12px;">
+                                        <div class="col-md-6 text-left" style="font-size: 14px;">
                                             Last COD Transfer:
                                         </div>
-                                        <div class="col-md-6 text-end" style="font-size: 12px;">
+                                        <div class="col-md-6 text-end" style="font-size: 14px;">
                                             <strong>{{optional(App\Models\Admin\Payment::orderBy('id','desc')->first())->created_at}}</strong>
                                         </div>
                                     </div>
@@ -172,11 +172,11 @@
                     <div class=" col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <div class="text-center "><b>Today's Details</b></div>
+                                <div class="text-center "><h5 style="font-weight: bolder;">Today's Details</h5></div>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <a href="#">
-                                            <div class="card-content text-center" style="font-size: 12px;">
+                                            <div class="card-content text-center" style="font-size: 28px; font-weight: 500;">
                                                 {{App\Models\Vendor\Order::where('order_status','delivered')->get()->count()}}
                                             </div>
                                             <div class="card-content text-center">Delivered Orders</div>
@@ -184,7 +184,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <a href="#">
-                                            <div class="card-content text-center" style="font-size: 12px;">
+                                            <div class="card-content text-center" style="font-size: 28px; font-weight: 500;">
                                                 0
                                             </div>
                                             <div class="card-content text-center">
@@ -194,7 +194,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <a href="#">
-                                            <div class="card-content text-center" style="font-size: 12px;">
+                                            <div class="card-content text-center" style="font-size: 28px; font-weight: 500;">
                                                 0
                                             </div>
                                             <div class="card-content text-center ">Order Created</div>
@@ -202,7 +202,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <a href="#">
-                                            <div class="card-content text-center" style="font-size: 12px;">
+                                            <div class="card-content text-center" style="font-size: 28px; font-weight: 500;">
                                                 60
                                             </div>
                                             <div class="card-content text-center ">Order's Comment</div>
@@ -210,7 +210,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <a href="#">
-                                            <div class="card-content text-center" style="font-size: 12px;">
+                                            <div class="card-content text-center" style="font-size: 28px; font-weight: 500;">
                                                 31
                                             </div>
                                             <div class="card-content text-center"><a class="link" href="#">Hold Orders</a></div>
@@ -218,7 +218,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <a href="#">
-                                            <div class="card-content text-center" style="font-size: 12px;">
+                                            <div class="card-content text-center" style="font-size: 28px; font-weight: 500;">
                                                 11
                                             </div>
                                             <div class="card-content text-center"><a class="link" href="#">RTV Orders</a></div>
@@ -231,11 +231,11 @@
                     <div class=" col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <div class="text-center "><b>Sales Statistics</b></div>
+                                <div class="text-center "><h5 style="font-weight: bolder;">Sales Statistics</h5></div>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <a href="#">
-                                            <div class="card-content text-center" style="font-size: 12px;">
+                                            <div class="card-content text-center" style="font-size: 28px; font-weight: 500;">
                                                 80.65%
                                             </div>
                                             <div class="card-content text-center ">Successful Delivered</div>
@@ -243,7 +243,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <a href="#">
-                                            <div class="card-content text-center" style="font-size: 12px;">
+                                            <div class="card-content text-center" style="font-size: 28px; font-weight: 500;">
                                                 12.12%
                                             </div>
                                             <div class="card-content text-center ">
@@ -253,7 +253,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <a href="#">
-                                            <div class="card-content text-center" style="font-size: 12px;">
+                                            <div class="card-content text-center" style="font-size: 28px; font-weight: 500;">
                                                 60
                                             </div>
                                             <div class="card-content text-center ">Redirect Delivered</div>
@@ -261,7 +261,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <a href="#">
-                                            <div class="card-content text-center" style="font-size: 12px;">
+                                            <div class="card-content text-center" style="font-size: 28px; font-weight: 500;">
                                                 60
                                             </div>
                                             <div class="card-content text-center ">Redirect Returned</div>
@@ -272,9 +272,9 @@
                         </div>
                     </div>
 
-                    <section class="content">
+                    <section class="content mb-5">
                         <div class="container-fluid">
-                            <div class="row">
+                            <div class="row mb-2">
                                 <div class="col-md-12">
                                     <div class="card card-success">
                                         <div class="card-header">

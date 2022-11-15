@@ -14,33 +14,8 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body">
-                        <form action="{{route('vendor.ticket.reply.store')}}" class="needs-validation" novalidate method="POST">
-                            @csrf
-                            <div class="row">
-                                <input type="hidden" name="ticket_id" value="{{$ticket_id}}">
-                                <input type="hidden" name="user_type" value="vendor">
-                                <input type="hidden" name="user_id" value="{{Auth::guard('vendor')->user()->id}}">
-                                <div class="col-md-12 pt-2">
-                                    <label class="form-label" for="reply">Reply</label>
-                                    <textarea name="reply" id="reply" class="form-control" placeholder="Reply..." required></textarea>
-                                </div>
-                            </div>
-                            <div class="row mt-2">
-                                <div class="col-md-12 text-center">
-                                    <button class="btn btn-primary" type="submit">Reply</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
+        <div class="row mb-4">
+            <div class="col-md-7">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="header-title">Ticket Reply</h4>
@@ -70,6 +45,29 @@
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="{{route('vendor.ticket.reply.store')}}" class="needs-validation" novalidate method="POST">
+                            @csrf
+                            <div class="row">
+                                <input type="hidden" name="ticket_id" value="{{$ticket_id}}">
+                                <input type="hidden" name="user_type" value="vendor">
+                                <input type="hidden" name="user_id" value="{{Auth::guard('vendor')->user()->id}}">
+                                <div class="col-md-12 pt-2">
+                                    <label class="form-label" for="reply">Reply</label>
+                                    <textarea name="reply" id="reply" class="form-control" placeholder="Reply..." required></textarea>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-md-12 text-center">
+                                    <button class="btn btn-primary" type="submit">Reply</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

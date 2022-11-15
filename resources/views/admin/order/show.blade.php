@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 @section('content')
 
-    <div class="content-wrapper">
+    <div class="content-wrapper mb-3">
         <section class="content-header">
             <div class="container-fluid">
                 <div class="row m-1">
@@ -32,12 +32,12 @@
                         </select>
                     </div>
                     <div class="col-sm-5 text-right">
-                        <h2>Order ID: {{$order->order_id}}</h2>
+                        <h2 style="color:#fff;">Order ID: {{$order->order_id}}</h2>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="content">
+        <section class="content mb-5">
             <div class="container-fluid">
                 <div class="card card-outline card-info p-3">
                     <div class="row">

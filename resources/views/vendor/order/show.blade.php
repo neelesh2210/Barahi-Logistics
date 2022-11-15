@@ -22,7 +22,7 @@
                 </div>
             </div>
         </div>
-        <div class="card">
+        <div class="card mb-4">
             <div class="card-body">
                 <div class="row">
                     <div class="col-5">

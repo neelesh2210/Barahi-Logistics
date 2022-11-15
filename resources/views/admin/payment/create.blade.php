@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 @section('content')
 
-    <div class="content-wrapper">
+    <div class="content-wrapper mb-5">
         <section class="content-header">
             <div class="container-fluid">
                 <div class="row m-1">
@@ -16,9 +16,9 @@
                 </div>
             </div>
         </section>
-        <section class="content">
+        <section class="content mb-5">
             <div class="container-fluid">
-                <div class="row">
+                <div class="row mb-5">
                     <div class="col-12">
                         <div class="card card-outline card-info">
                             <div class="card-body p-0">

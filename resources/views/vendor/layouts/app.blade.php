@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
-        <link rel="shortcut icon" href="{{asset('vendors/assets/images/favicon.ico')}}">
+        <link rel="shortcut icon" href="{{asset('vendors/assets/images/logo04.png')}}">
         <link href="{{asset('vendors/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('vendors/css/app.min.css')}}" rel="stylesheet" type="text/css" id="app-style"/>
     </head>
