@@ -35,19 +35,22 @@
                         @endif
                         <div class="card card-outline card-info">
                             <div class="card-header">
-                                <h3 class="card-title">Payment List</h3>
-                                <div class="card-tools">
-                                    <form action="#">
-                                        <div class="input-group input-group-sm" style="width: 200px;">
-                                            <input type="text" name="key" value="" class="form-control float-right" placeholder="Search">
-                                            <div class="input-group-append">
-                                                <button type="submit" class="btn btn-default">
-                                                    <i class="fas fa-search"></i>
-                                                </button>
-                                            </div>
+                                <form action="{{route('admin.payment.index')}}">
+                                    <div class="row">
+                                        <div class="col-md-5"></div>
+                                        <div class="col-md-3">
+                                            <label for="date_range">Date Range</label>
+                                            <input type="text" name="date_range" class="form-control float-right" placeholder="Date Range" id="reservation">
                                         </div>
-                                    </form>
-                                </div>
+                                        <div class="col-md-3">
+                                            <label for="order_id">Order Id</label>
+                                            <input type="text" name="search" class="form-control" placeholder="Order Id">
+                                        </div>
+                                        <div class="col-md-1" style="margin-top: 2%;">
+                                            <button class="btn btn-primary">Fillter</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                             <div class="card-body table-responsive p-2">
                                 @include('admin.payment.table')

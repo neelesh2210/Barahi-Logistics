@@ -11,10 +11,15 @@ use Illuminate\Support\Facades\Hash;
 class VendorController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $vendors=Vendor::orderBy('name','asc')->with('vendor_details')->paginate(10);
+        $vendors=Vendor::orderBy('name','asc')->with('vendor_details');
 
+        if($request->key)
+        {
+            $vendors=$vendors->where('name',$request->key)->orWhere('phone',$request->key);
+        }
+        $vendors=$vendors->paginate(10);
         return view('admin.vendor.index',compact('vendors'));
     }
 

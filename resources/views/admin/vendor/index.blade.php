@@ -39,7 +39,7 @@
                                 <div class="card-tools">
                                     <form action="{{route('vendors.index')}}">
                                         <div class="input-group input-group-sm" style="width: 200px;">
-                                            <input type="text" name="key" value="" class="form-control float-right" placeholder="Search">
+                                            <input type="text" name="key" value="" class="form-control float-right" placeholder="Enter Name or Phone">
                                             <div class="input-group-append">
                                                 <button type="submit" class="btn btn-default">
                                                     <i class="fas fa-search"></i>

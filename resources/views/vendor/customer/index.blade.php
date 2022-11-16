@@ -17,6 +17,20 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
+                    <div class="card-header">
+                        <form action="{{route('customers.index')}}">
+                            <div class="row">
+                                <div class="col-md-8"></div>
+                                <div class="col-md-3">
+                                    <label for="search">Search</label>
+                                    <input type="text" name="search" class="form-control" placeholder="Enter Name or Phone">
+                                </div>
+                                <div class="col-md-1" style="margin-top: 2%;">
+                                    <button class="btn btn-primary">Fillter</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                     <div class="card-body">
                         <h4 class="header-title">Customer List</h4>
                         <div class="table-responsive-sm">

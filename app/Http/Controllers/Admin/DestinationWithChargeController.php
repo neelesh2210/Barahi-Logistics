@@ -9,9 +9,16 @@ use App\Models\Admin\DestinationWithCharge;
 class DestinationWithChargeController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $destination_with_charges=DestinationWithCharge::orderBy('destination','asc')->paginate(10);
+        $destination_with_charges=DestinationWithCharge::orderBy('destination','asc');
+
+        if($request->key)
+        {
+            $destination_with_charges=$destination_with_charges->where('destination',$request->key);
+        }
+        $destination_with_charges=$destination_with_charges->paginate(10);
+
         return view('admin.destination_with_charge.index',compact('destination_with_charges'));
     }
 

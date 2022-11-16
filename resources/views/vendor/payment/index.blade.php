@@ -17,6 +17,24 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
+                    <div class="card-header">
+                        <form action="{{route('vendor.payment.index')}}">
+                            <div class="row">
+                                <div class="col-md-5"></div>
+                                <div class="col-md-3">
+                                    <label for="date_range">Date Range</label>
+                                    <input type="text" name="date_range" class="form-control float-right" placeholder="Date Range" id="reservation">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="order_id">Order Id</label>
+                                    <input type="text" name="search" class="form-control" placeholder="Order Id">
+                                </div>
+                                <div class="col-md-1" style="margin-top: 2%;">
+                                    <button class="btn btn-primary">Fillter</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                     <div class="card-body">
                         <h4 class="header-title">Payment List</h4>
                         <div class="table-responsive-sm">
@@ -68,5 +86,25 @@
             </div>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{asset('admins/js/moment.min.js')}}"></script>
+    <script src="{{asset('admins/js/daterangepicker.js')}}"></script>
+    <script>
 
+        $('#reservation').daterangepicker({
+            autoUpdateInput: false,
+            locale: {
+                cancelLabel: 'Clear'
+            }
+        })
+
+        $('#reservation').on('apply.daterangepicker', function(ev, picker) {
+            $(this).val(picker.startDate.format('MM/DD/YYYY') + '-' + picker.endDate.format('MM/DD/YYYY'));
+        });
+
+        $('#reservation').on('cancel.daterangepicker', function(ev, picker) {
+            $(this).val('');
+        });
+
+    </script>
 @endsection
