@@ -57,14 +57,14 @@
                         <div class="col-5">
                             <h3>Additional Info | <a style="cursor: pointer" onclick="additional_info()"><i class="fas fa-plus-circle"></i></a></h3>
                             Tracking Code: <b>{{$order->order_id}}</b> <br>
-                            Package Access: <b>{{$order->package_access}}</b> <br>
-                            Delivery Instruction: <b></b> <br>
-                            Vendor Reference ID: <b></b> <br>
-                            Description: <b></b> <br>
+                            Package Access: <b>{{ucwords(str_replace('_',' ',$order->package_access))}}</b> <br>
+                            Delivery Instruction: <b>{{$order->delivery_instruction}}</b> <br>
+                            Vendor Reference ID: <b>{{$order->vendor_reference_id}}</b> <br>
+                            Description: <b>{{$order->remark}}</b> <br>
                             <hr>
-                            Payment Status: <b></b> <br>
-                            Payment Collection: <b></b> <br>
-                            Last Updated: <b></b>
+                            Order Status: <b>{{ucwords(str_replace('_',' ',$order->order_status))}}</b> <br>
+                            Payment Collection: <b>Pending</b> <br>
+                            Last Updated: <b>{{$order->updated_at->format('M, d, Y, h:i A')}}</b>
                             <hr>
                         </div>
                         <div class="col-2 text-right">
