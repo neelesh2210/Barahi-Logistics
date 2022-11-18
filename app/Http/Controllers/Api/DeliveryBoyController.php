@@ -16,6 +16,7 @@ class DeliveryBoyController extends Controller
             'phone_number' => 'required|string|min:10|max:10',
             'password' => 'required|string|min:8',
         ]);
+        return 1;
         $delivery_boy = DeliveryBoy::where('phone_number',$request->phone_number)->first();
 
         if($delivery_boy)
