@@ -56,22 +56,15 @@
                                             <label for="status">Status</label>
                                             <select name="status" id="status" class="form-control select2" data-toggle="select2" >
                                                 <option value="">Select Status</option>
-                                                <option value="drop_off_order_created">Drop Off Order Created</option>
-                                                <option value="pickup_order_created">Pickup Order Created</option>
+                                                <option value="order_created">Order Created</option>
                                                 <option value="sent_for_pickup">Sent for Pickup</option>
                                                 <option value="pickup_complete">Pickup Complete</option>
-                                                <option value="dispatched">Dispatched</option>
-                                                <option value="arrived">Arrived</option>
-                                                <option value="returned_to_warehouse">Returned To Warehouse</option>
                                                 <option value="sent_for_delivery">Sent for Delivery</option>
                                                 <option value="delivered">Delivered</option>
-                                                <option value="returned_delivered">Returned Delivered</option>
-                                                <option value="sent_to_vendor">Sent To Vendor</option>
-                                                <option value="order_created">Order Created</option>
-                                                <option value="hold">Hold</option>
-                                                <option value="cancelled">Cancelled</option>
-                                                <option value="rtv_branch">RTV Branch</option>
-                                                <option value="rtv_all">RTV All</option>
+                                                <option value="returned_to_warehouse">Returned To Warehouse</option>
+                                                <option value="return_to_vendor">Return To Vendor</option>
+                                                <option value="return_sent_to_vendor">Return Sent To Vendor</option>
+                                                <option value="return_delivered_to_vendor">Return Delivered To Vendor</option>
                                             </select>
                                         </div>
                                         <div class="col-md-3">

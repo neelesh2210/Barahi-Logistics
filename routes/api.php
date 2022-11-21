@@ -19,4 +19,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//Delivery Boy Login
 Route::post('delivery-boy-login',[DeliveryBoyController::class,'deliveryBoyLogin'])->name('delivery.boy.login');
+
+Route::middleware('auth:sanctum')->group( function () {
+
+    //Delivery Boy Orders
+    Route::post('delivery-boy-orders',[DeliveryBoyController::class,'deliveryBoyOrder'])->name('delivery.boy.orders');
+    Route::post('delivery-boy-status-change',[DeliveryBoyController::class,'deliveryBoyStatusChange'])->name('delivery.boy.status.change');
+
+});
+

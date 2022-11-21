@@ -86,6 +86,14 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.assign-order.index')}}" class="nav-link @if(Route::currentRouteName() == 'delivery-boys.index') active @endif">
+                        <i class="nav-icon fas fa-biking"></i>
+                        <p>
+                            Assign Order
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>

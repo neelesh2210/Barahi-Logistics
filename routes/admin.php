@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\VendorController;
 use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Auth\LoginController;
+use App\Http\Controllers\Admin\AssignOrderController;
 use App\Http\Controllers\Admin\DeliveryBoyController;
 use App\Http\Controllers\Admin\DestinationWithChargeController;
 
@@ -49,6 +50,10 @@ Route::middleware(['auth:admin'])->group(function () {
 
     //Delivery Boy
     Route::resource('delivery-boys', DeliveryBoyController::class);
+
+    //Assign Order
+    Route::resource('assign-order',AssignOrderController::class,['as'=>'admin']);
+    Route::get('get-assign-delivery-boy-orders',[AssignOrderController::class,'getAssignDeliveryBoyOrders'])->name('get.assign.delivery.boy.orders');
 
     Route::post('logout/', [LoginController::class, 'logout'])->name('admin.logout');
 });
