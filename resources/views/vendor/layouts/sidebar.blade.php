@@ -34,6 +34,12 @@
                 </a>
             </li>
             <li class="side-nav-item">
+                <a href="{{route('vendor.order.comment')}}" class="side-nav-link">
+                    <i class="uil-comment"></i>
+                    <span> Comments </span>
+                </a>
+            </li>
+            <li class="side-nav-item">
                 <a href="{{route('vendor.payment.index')}}" class="side-nav-link">
                     <i class="uil-money-bill"></i>
                     <span> Payments </span>

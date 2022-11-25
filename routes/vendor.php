@@ -44,5 +44,7 @@ use App\Http\Controllers\Vendor\OrderCommentController;
         Route::get('tickets-reply-index/{ticket_id}', [TicketReplyController::class,'index'])->name('vendor.ticket.reply.index');
         Route::post('tickets-reply-store', [TicketReplyController::class,'store'])->name('vendor.ticket.reply.store');
 
+        //Order Comment
+        Route::get('vendor-order-comment',[OrderCommentController::class,'index'])->name('vendor.order.comment');
         Route::post('logout/', [LoginController::class, 'logout'])->name('vendor.logout');
     });

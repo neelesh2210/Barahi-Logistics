@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\AssignOrderController;
 use App\Http\Controllers\Admin\DeliveryBoyController;
+use App\Http\Controllers\Admin\OrderCommentController;
 use App\Http\Controllers\Admin\DestinationWithChargeController;
 
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('admin.login');
@@ -55,5 +56,7 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::resource('assign-order',AssignOrderController::class,['as'=>'admin']);
     Route::get('get-assign-delivery-boy-orders',[AssignOrderController::class,'getAssignDeliveryBoyOrders'])->name('get.assign.delivery.boy.orders');
 
+    //Comment
+    Route::get('admin-order-comment',[OrderCommentController::class,'index'])->name('admin.order.comment');
     Route::post('logout/', [LoginController::class, 'logout'])->name('admin.logout');
 });

@@ -55,6 +55,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{route('admin.order.comment')}}" class="nav-link @if(Route::currentRouteName() == 'admin.order.comment') active @endif">
+                        <i class="nav-icon fas fa-comment"></i>
+                        <p>
+                            Comments
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{route('admin.payment.index')}}" class="nav-link @if(Route::currentRouteName() == 'admin.payment.index') active @endif">
                         <i class="nav-icon fas fa-money-bill-wave"></i>
                         <p>
@@ -87,8 +95,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('admin.assign-order.index')}}" class="nav-link @if(Route::currentRouteName() == 'delivery-boys.index') active @endif">
-                        <i class="nav-icon fas fa-biking"></i>
+                    <a href="{{route('admin.assign-order.index')}}" class="nav-link @if(Route::currentRouteName() == 'admin.assign-order.index') active @endif">
+                        <i class="nav-icon fas fa-truck-loading"></i>
                         <p>
                             Assign Order
                         </p>
