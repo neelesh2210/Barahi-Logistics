@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\NoticeController;
 use App\Http\Controllers\Admin\TicketController;
 use App\Http\Controllers\Admin\VendorController;
 use App\Http\Controllers\Admin\PaymentController;
+use App\Http\Controllers\Admin\AnalysisController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\AssignOrderController;
@@ -58,5 +59,10 @@ Route::middleware(['auth:admin'])->group(function () {
 
     //Comment
     Route::get('admin-order-comment',[OrderCommentController::class,'index'])->name('admin.order.comment');
+
+    //Analysis
+    Route::get('admin-today-details',[AnalysisController::class,'todayDetails'])->name('admin.today.details');
+
     Route::post('logout/', [LoginController::class, 'logout'])->name('admin.logout');
+
 });

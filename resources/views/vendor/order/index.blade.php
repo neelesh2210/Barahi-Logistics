@@ -3,7 +3,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-6">
+            <div class="col-4">
                 <div class="page-title-box">
                     <div class="page-title-left">
                         <ol class="breadcrumb mb-0">
@@ -13,10 +13,19 @@
                     </div>
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-8">
                 <div class="page-title-box">
                     <div class="page-title-right">
                         <a href="{{route('orders.create')}}" class="btn btn-primary"><i class="dripicons-plus"></i>Add New Order</a>
+                    </div>
+                    <div class="page-title-right" style="padding-right: 10px;">
+                        <a href="{{route('admin.view.bulk.order')}}" class="btn btn-primary"><i class="dripicons-plus"></i>Add Bulk Orders</a>
+                    </div>
+                    <div class="page-title-right" style="padding-right: 10px;">
+                        <a href="{{route('orders.create')}}" class="btn btn-primary"><i class="mdi mdi-eye"></i>View Bulk Orders</a>
+                    </div>
+                    <div class="page-title-right" style="padding-right: 10px;">
+                        <a href="{{route('orders.create')}}" class="btn btn-primary"><i class="dripicons-print"></i>Print Invoice</a>
                     </div>
                 </div>
             </div>
@@ -27,7 +36,7 @@
                     <div class="card-header">
                         <form action="{{route('orders.index')}}">
                             <div class="row">
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                     <label for="source">Source</label>
                                     <select name="source" id="source" class="form-control select2" data-toggle="select2" >
                                         <option value="">Select Source</option>
@@ -70,6 +79,10 @@
                                 <div class="col-md-3">
                                     <label for="date_range">Date Range</label>
                                     <input type="text" name="date_range" class="form-control float-right" placeholder="Date Range" id="reservation">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="search">Search</label>
+                                    <input type="text" name="search" class="form-control float-right" placeholder="Search Order Id,Phone,Name">
                                 </div>
                                 <div class="col-md-1" style="margin-top: 2%;">
                                     <button class="btn btn-primary">Fillter</button>

@@ -45,6 +45,7 @@
                                             <th class="text-center">Order ID</th>
                                             <th class="text-center">User</th>
                                             <th class="text-center">Comment</th>
+                                            <th class="text-center">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -60,6 +61,9 @@
                                                     @endif
                                                 </td>
                                                 <td class="text-center">{{$order_comment->comment}}</td>
+                                                <td class="text-center">
+                                                    <a href="{{route('admin.orders.show',$order_comment->order_id)}}"><i class="fas fa-eye"></i></a>
+                                                </td>
                                             </tr>
                                         @empty
                                             <tr class="footable-empty">

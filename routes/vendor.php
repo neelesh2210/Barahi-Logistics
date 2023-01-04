@@ -20,6 +20,8 @@ use App\Http\Controllers\Vendor\OrderCommentController;
         Route::resource('orders', OrderController::class);
         Route::get('get-delivery-charge/{destination_id}',[OrderController::class,'getDeliveryCharge'])->name('get.delivery.charge');
         Route::post('additional-info/{order_id}',[OrderController::class,'additionalInfo'])->name('additional.info');
+        Route::get('view-bulk-order',[OrderController::class,'bulkOrderView'])->name('admin.view.bulk.order');
+        Route::post('store-bulk-order',[OrderController::class,'import'])->name('admin.store.bulk.order');
 
         //Order Comment
         Route::resource('order-comments',OrderCommentController::class);

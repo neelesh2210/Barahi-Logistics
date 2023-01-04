@@ -63,29 +63,29 @@
                                     <label class="form-label" for="delivery_charge">Delivery Charge</label>
                                     <input type="number" step="0.01" name="delivery_charge" id="delivery_charge" class="form-control" placeholder="Delivery Charge..." readonly>
                                 </div>
-                                <div class="col-md-6 pt-2">
+                                {{-- <div class="col-md-6 pt-2">
                                     <label class="form-label" for="pickup_type">Pickup Type</label>
                                     <select name="pickup_type" id="pickup_type" class="form-control" required>
                                         <option value="drop_off">Drop Off</option>
                                         <option value="pick_up">Pick Up</option>
                                     </select>
-                                </div>
+                                </div> --}}
                                 <div class="col-md-6 pt-2">
                                     <label class="form-label" for="cod_charge">COD Charge</label>
                                     <input type="number" step="0.01" name="cod_charge" id="cod_charge" class="form-control" placeholder="COD Charge...">
                                 </div>
-                                <div class="col-md-6 pt-2">
+                                {{-- <div class="col-md-6 pt-2">
                                     <label class="form-label" for="package_access">Package Access</label>
                                     <select name="package_access" id="package_access" class="form-control" required>
                                         <option value="can_open">Can Open</option>
                                         <option value="can't_open">Can't Open</option>
                                     </select>
-                                </div>
-                                <div class="col-md-6 pt-2">
+                                </div> --}}
+                                {{-- <div class="col-md-6 pt-2">
                                     <label class="form-label" for="package_type">Package Type</label>
                                     <input type="text" name="package_type" id="package_type" class="form-control" placeholder="Package Type...">
-                                </div>
-                                <div class="col-md-12 pt-2">
+                                </div> --}}
+                                <div class="col-md-6 pt-2">
                                     <label class="form-label" for="remark">Remark</label>
                                     <textarea name="remark" id="remark" class="form-control" placeholder="Remark..."></textarea>
                                 </div>

@@ -102,6 +102,24 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item @if (Route::currentRouteName() == 'admin.today.details') menu-is-opening menu-open @endif">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-shopping-cart"></i>
+                        <p>
+                            Analysis
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('admin.today.details')}}"
+                                class="nav-link @if (Route::currentRouteName() == 'admin.today.details') active @endif">
+                                <i class="nav-icon far fa-circle"></i>
+                                <p>Today Details</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </div>

@@ -26,9 +26,9 @@ class CreateOrdersTable extends Migration
             $table->text('receiver_address');
             $table->double('weight',8,2);
             $table->double('delivery_charge',8,2);
-            $table->string('pickup_type');
+            $table->string('pickup_type')->nullable();
             $table->double('cod_charge',8,2)->nullable();
-            $table->string('package_access');
+            $table->string('package_access')->nullable();
             $table->string('package_type')->nullable();
             $table->text('remark')->nullable();
             $table->string('priority')->nullable();
